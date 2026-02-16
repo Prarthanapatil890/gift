@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import bg1 from "./assets/bg1.jpg";
 import bg2 from "./assets/bg2.jpg";
@@ -487,7 +487,7 @@ const NewspaperPage = () => (
         }, 8000);
         return () => clearTimeout(timer);
       
-    }, [candleBlown] );
+    }, [] );
 
     return (
       <motion.div
