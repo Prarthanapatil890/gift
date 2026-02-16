@@ -14,7 +14,7 @@ const App = () => {
   const [currentNote, setCurrentNote] = useState(null);
   const [candleBlown, setCandleBlown] = useState(false);
   const [stars, setStars] = useState([]);
-  const newspaperRef = useRef(null);
+  
 
   // Love notes content
   const loveNotes = [
@@ -421,6 +421,7 @@ const NewspaperPage = () => (
           {/* ✅ REAL SPOTIFY EMBED */}
           <div className="mb-6">
             <iframe
+              title="Birthday Playlist"
               data-testid="embed-iframe"
               style={{ borderRadius: "12px" }}
               src="https://open.spotify.com/embed/playlist/7ywU61SlA8ZhVBAqakSHkR?utm_source=generator"
@@ -479,13 +480,14 @@ const NewspaperPage = () => (
 
   const WishPage = () => {
     useEffect(() => {
-      if (candleBlown) {
+      if (!candleBlown) return;
+
         const timer = setTimeout(() => {
           setCurrentPage(1);
         }, 8000);
         return () => clearTimeout(timer);
-      }
-    }, [candleBlown]);
+      
+    }, [candleBlown] );
 
     return (
       <motion.div
